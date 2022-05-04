@@ -1,82 +1,36 @@
-# Example app with styled-components
+<h1>INSTALAÇÃO</h1>
 
-This example features how you use a different styling solution than [styled-jsx](https://github.com/vercel/styled-jsx) that also supports universal styles. That means we can serve the required styles for the first render within the HTML and then load the rest in the client. In this case we are using [styled-components](https://github.com/styled-components/styled-components).
+Bom para executar é bem simples.
 
-This example uses the Rust-based [SWC](https://nextjs.org/docs/advanced-features/compiler#styled-components) in Next.js for better performance than Babel.
+Basta instalar o Node.JS e após isso realizar o seguinte processo.
 
-Currently, only the `ssr` and `displayName` transforms have been implemented. These two transforms are the main requirement for using `styled-components` in Next.js.
+Dentro da pasta onde tem os arquivos do site executa o terminal.
 
-## Deploy your own
+Win 10 -> 
+![image](https://user-images.githubusercontent.com/82846956/166717703-349f3584-2dc6-4a5a-a0b8-b51c77fbb3ba.png)
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-styled-components)
+Win 11 ->
+![image](https://user-images.githubusercontent.com/82846956/166717840-cb755da6-06b9-4a19-aabf-9af40af73da9.png)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-styled-components&project-name=with-styled-components&repository-name=with-styled-components)
+Dentro do Terminal executa o comando:
+```npm run dev```
 
-## How to use
+Isso vai executar o site e fazer com que ele seja Hosteado em uma porta:
+![image](https://user-images.githubusercontent.com/82846956/166718068-b62d7e00-ab1c-42dd-a7fa-212a41bcc404.png)
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+Entrando nessa URL poderá acessar o site e fazer as alterações em tempo real.
 
-```bash
-npx create-next-app --example with-styled-components with-styled-components-app
-# or
-yarn create next-app --example with-styled-components with-styled-components-app
-# or
-pnpm create next-app -- --example with-styled-components with-styled-components-app
-```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+<h1>Detalhes da edição</h1>
 
-### Try it on CodeSandbox
+Só um adendo sobre a edição das páginas
 
-[Open this example on CodeSandbox](https://codesandbox.io/s/github/vercel/next.js/tree/canary/examples/with-styled-components)
+Elas são divididades em componentes e páginas. 
+Componentes são as partes que compõe as páginas como o Navbar, logo para editar o navbar será necessário editar o component/navbar já 
+que ele só é invocado pelas páginas:
 
-### Notes
+![image](https://user-images.githubusercontent.com/82846956/166718609-458bd57f-82b9-424d-ad9c-e9ed6c8159d5.png)
 
-When wrapping a [Link](https://nextjs.org/docs/api-reference/next/link) from `next/link` within a styled-component, the [as](https://styled-components.com/docs/api#as-polymorphic-prop) prop provided by `styled` will collide with the Link's `as` prop and cause styled-components to throw an `Invalid tag` error. To avoid this, you can either use the recommended [forwardedAs](https://styled-components.com/docs/api#forwardedas-prop) prop from styled-components or use a different named prop to pass to a `styled` Link.
+![image](https://user-images.githubusercontent.com/82846956/166718647-788a1181-c795-450e-ace8-d9a918d57c5b.png)
 
-<details>
-<summary>Click to expand workaround example</summary>
-<br />
-
-**components/StyledLink.js**
-
-```javascript
-import Link from 'next/link'
-import styled from 'styled-components'
-
-const StyledLink = ({ as, children, className, href }) => (
-  <Link href={href} as={as} passHref>
-    <a className={className}>{children}</a>
-  </Link>
-)
-
-export default styled(StyledLink)`
-  color: #0075e0;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    color: #40a9ff;
-  }
-
-  &:focus {
-    color: #40a9ff;
-    outline: none;
-    border: 0;
-  }
-`
-```
-
-**pages/index.js**
-
-```javascript
-import StyledLink from '../components/StyledLink'
-
-export default () => (
-  <StyledLink href="/post/[pid]" forwardedAs="/post/abc">
-    First post
-  </StyledLink>
-)
-```
-
-</details>
+![image](https://user-images.githubusercontent.com/82846956/166718773-e0749459-8c22-4f6f-b33c-ad2aaa793aae.png)
